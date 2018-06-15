@@ -49,4 +49,8 @@ export class BarraTarefasComponent implements OnInit {
         document.querySelector('footer').classList.toggle('hide-footer');
         document.querySelector('#showFooter').classList.toggle('hide-footer');
     }
+
+    listItensBarra() {
+        return this.service.itensBarra;
+    }
 }

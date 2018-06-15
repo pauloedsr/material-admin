@@ -1,3 +1,5 @@
+import { ItemBarraComponent } from './components/barra-tarefas/item-barra/item-barra.component';
+import { BarraTarefasComponent } from './components/barra-tarefas/barra-tarefas.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import {
@@ -7,7 +9,8 @@ import {
     MatListModule,
     MatMenuModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatExpansionModule
 } from '@angular/material';
 import { TranslateModule } from '@ngx-translate/core';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
@@ -27,8 +30,9 @@ import { NavComponent } from './nav/nav.component';
         MatInputModule,
         MatMenuModule,
         MatListModule,
+        MatExpansionModule,
         TranslateModule
     ],
-    declarations: [LayoutComponent, NavComponent, TopnavComponent, SidebarComponent]
+    declarations: [LayoutComponent, NavComponent, TopnavComponent, SidebarComponent, BarraTarefasComponent, ItemBarraComponent]
 })
 export class LayoutModule {}

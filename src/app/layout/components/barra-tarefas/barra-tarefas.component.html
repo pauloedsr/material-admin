@@ -1,0 +1,11 @@
+<footer>
+    <button mat-icon-button (click)="hide()">
+        <mat-icon>arrow_drop_down</mat-icon>
+    </button>
+    <app-item-barra *ngFor="let item of service.itensBarra" [item]="item" (close)="close($event)"></app-item-barra>
+</footer>
+<div id="showFooter" class="hide-footer">
+    <button mat-icon-button (click)="hide()" style="width: 40px;">
+            <mat-icon>arrow_drop_up</mat-icon>
+    </button>
+</div>

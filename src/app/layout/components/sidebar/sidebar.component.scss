@@ -1,4 +1,5 @@
 #sidebar {
+    left:55px;
     width: 250px;
     position: fixed;
     top: 56px;
@@ -8,6 +9,8 @@
     z-index: 999;
     -ms-overflow-y: auto;
     overflow-y: auto;
+    transition-property: left;
+    transition-duration: 300ms;
     .mat-nav-list {
         width: 100%;
         a {
@@ -16,10 +19,69 @@
             }
             display: block;
         }
+        .title {
+            color:#3f51b5;
+            margin-top: 0 !important;
+        }
     }
 }
+
+#sidebar .sidenav-icon {
+    font-size: 15px;
+    height: 15px;
+    margin-right: 0px !important;
+}
+
+
+.active {
+    background-color: rgb(245,245,245);
+}
+
+.nav-active {
+    background-color: rgb(255, 255, 255);
+    border-left: 4px solid #3f51b5 !important;
+    .mat-icon {
+        color: #3f51b5 !important;
+        margin-left: -4px;
+    }
+}
+
+#navsidebar {
+    width: 55px;
+    position: fixed;
+    top: 56px;
+    bottom: 0;
+    background: rgb(245,245,245);
+    z-index: 1000;
+    -ms-overflow-y: auto;
+    overflow-y: auto;
+    transition-property: left;
+    transition-duration: 70ms;
+    transition-delay: 165ms;
+    .mat-nav-list {
+        width: 100%;
+        a {
+            display: block;
+        }
+    }
+    .mat-icon {
+        color: rgb(90, 90, 90);
+    }
+}
+
+.mat-expansion-panel:not([class*=mat-elevation-z]) {
+    box-shadow: none !important;
+}
+
+.mat-expansion-panel-header {
+    padding-left: 15px;
+}
+
 @media screen and (max-width: 992px) {
     #sidebar {
         left: -250px;
+    }
+    #navsidebar {
+        left: -55px;
     }
 }

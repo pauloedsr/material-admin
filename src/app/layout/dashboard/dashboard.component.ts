@@ -1,5 +1,7 @@
+import { BarraTarefasService } from './../../shared/services/barra-tarefas.service';
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
+import { ItemBarraInterface } from '../components/barra-tarefas/item-barra/item-barra.component';
 
 export interface PeriodicElement {
     name: string;
@@ -26,7 +28,6 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class DashboardComponent implements OnInit {
     displayedColumns = ['position', 'name', 'weight', 'symbol'];
     dataSource = new MatTableDataSource(ELEMENT_DATA);
-    places: Array<any> = [];
 
     applyFilter(filterValue: string) {
         filterValue = filterValue.trim(); // Remove whitespace
@@ -34,34 +35,34 @@ export class DashboardComponent implements OnInit {
         this.dataSource.filter = filterValue;
     }
 
-    constructor() {
-        this.places = [
-            {
-                imgSrc: 'assets/images/card-1.jpg',
-                place: 'Cozy 5 Stars Apartment',
-                description:
-                    'The place is close to Barceloneta Beach and bus stop just 2 min by walk and near to "Naviglio" where you can enjoy the main night life in Barcelona.',
-                charge: '$899/night',
-                location: 'Barcelona, Spain'
-            },
-            {
-                imgSrc: 'assets/images/card-2.jpg',
-                place: 'Office Studio',
-                description:
-                    'The place is close to Metro Station and bus stop just 2 min by walk and near to "Naviglio" where you can enjoy the night life in London, UK.',
-                charge: '$1,119/night',
-                location: 'London, UK'
-            },
-            {
-                imgSrc: 'assets/images/card-3.jpg',
-                place: 'Beautiful Castle',
-                description:
-                    'The place is close to Metro Station and bus stop just 2 min by walk and near to "Naviglio" where you can enjoy the main night life in Milan.',
-                charge: '$459/night',
-                location: 'Milan, Italy'
-            }
-        ];
+    constructor(private barraTarefasService: BarraTarefasService) {}
+
+    ngOnInit() {
+        console.log('TESTE TESTE', this.barraTarefasService.testeBarra);
     }
 
-    ngOnInit() {}
+    addItemBarra() {
+        const turma = Math.random().toString().substr(3, 3);
+        const item: ItemBarraInterface = {
+            titulo: 'Teste Add ',
+            url: `/turma/${turma}`,
+            icon: 'home',
+            subtitulo: `Turma ${turma}`
+        };
+        this.barraTarefasService.addItem(item);
+    }
+
+    abreTable() {
+        const item: ItemBarraInterface = {
+            titulo: 'Tables',
+            url: '/tables',
+            icon: 'table_chart',
+            subtitulo: `Exemplos de tabelas com filtro por conteúdo`
+        };
+        this.barraTarefasService.addItem(item);
+    }
+
+    mock() {
+        this.barraTarefasService.mocka();
+    }
 }

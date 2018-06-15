@@ -6,7 +6,7 @@ Dashboard Admin App built using Angular 6 and Material 2.
 
 Fork from https://github.com/start-javascript/sb-admin-material.git
 
-## [Demo](http://rawgit.com/start-javascript/material-admin/master/dist/)
+## [Demo](https://rawgit.com/pauloedsr/material-admin/tree/master/dist)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
 
